@@ -10,21 +10,26 @@ public class Kunde implements Comparable<Kunde> {
       this.name = name;
       this.vorname = vorname;
    }
+   
    public int getKundenNr(){
       return kundenNr;
    }
+   
    public String toString(){
       return name + ", " + vorname + " (" + kundenNr + ")";
    }
+   
    public boolean equals(Object o){
       if( o==this ) return true;
       if( o==null || o.getClass()!=getClass() ) return false;
       Kunde that = (Kunde)o;
       return kundenNr==that.kundenNr;
    }
+   
    public int hashCode(){
       return kundenNr;
    }
+   
    public int compareTo(Kunde o) {
       return kundenNr - o.kundenNr;
    }
