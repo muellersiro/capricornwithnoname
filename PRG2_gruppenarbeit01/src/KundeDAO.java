@@ -32,9 +32,9 @@ public class KundeDAO {
    }
    
    //schnelltest
-   public static void main(String[] args) {
-      KundeDAO data = new KundeDAO();
-      System.out.println( data.getAll() );
-      System.out.println( data.getKunde(1000002));
-   }
+   // public static void main(String[] args) {
+   //    KundeDAO data = new KundeDAO();
+   //    System.out.println( data.getAll() );
+   //   System.out.println( data.getKunde(1000002));
+   // }
 }

@@ -8,7 +8,8 @@ public class Bankomat {
 		System.out.println("Bitte Bankkarte einschieben");
 		System.out.println("Bankkarte wird gelesen...");
 		
-		Konto konto = new Konto(224016);
+		//Konto öffnen
+		Konto konto = new Konto(333444, 4444);
 		System.out.println("Konto wird geöffnet");
 		System.out.println("PIN: ");
 
