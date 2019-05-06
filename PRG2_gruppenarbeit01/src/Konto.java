@@ -3,8 +3,8 @@ public class Konto {
 
 	private int kontoNr;
 	private double kontoStand;
-	private Kunde inhaber;
 	private String pin;
+	private Kunde inhaber;
 
 	public Konto(int kontoNr) {
 		this.kontoNr = kontoNr;
@@ -22,30 +22,29 @@ public class Konto {
 	}
 
 	public Boolean checkPin(String eingabe) {
-		if (eingabe.equals(this.pin)) {
-			System.out.println("PIN korrekt");
+		return eingabe.equals(this.pin);
+	}
+
+	public Boolean einzahlen(double betrag) {
+		if (betrag > 0) {
+			kontoStand += betrag;
 			return true;
 		} else {
 			return false;
 		}
 	}
 
-	public void einzahlen(double betrag) {
-		if (betrag > 0) {
-			kontoStand += betrag;
-			System.out.println("Betrag " + betrag + " wurde erfolgreich einbezahlt");
-		} else {
-			System.out.println("Betrag muss grösser als 0 sein!");
+	public Boolean auszahlen(double betrag) {
+		if(kontoStand < betrag) {
+			return false;
 		}
-	}
-
-	public void auszahlen(double betrag) {
 		if (betrag > 0) {
 			kontoStand -= betrag;
 			System.out.println("Betrag " + betrag + " wurde erfolgreich ausbezahlt");
 		} else {
 			System.out.println("Betrag muss grösser als 0 sein!");
 		}
+		return true;
 	}
 
 	public boolean equals(Object o) {
