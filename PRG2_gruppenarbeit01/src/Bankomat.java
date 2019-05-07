@@ -1,22 +1,32 @@
 import java.util.Scanner;
-
+/**
+ * Bankomat Klasse, welche die Funktionen abdeckt
+ *
+ * @author Siro Müller, Marco Weber, Michel Glauser
+ * @version 1.1
+ */
 public class Bankomat {
 	Scanner scanner = new Scanner(System.in);
 
+	 /**
+     * Automat starten
+     *
+     */
 	public void starten() {
 
 		System.out.println("Bitte Bankkarte einschieben");
 		System.out.println("Bankkarte wird gelesen...");
 
-		// Konto öffnen
+		// Konten lesen
 		KontoDAO kontoData = new KontoDAO();
-		System.out.println(kontoData.getAll());
-		Konto konto = kontoData.getKonto(333444);
-
+		//Spezifisches Konto öffnen
 		System.out.println("Konto wird geöffnet");
+		Konto konto = kontoData.getKonto(333445);
+
 		System.out.println("PIN: ");
 
-		for (int i = 0; i < 3; i++) {
+		//drei Versuche
+		for (int i = 0; i < 3; i++) { 
 			if (konto.checkPin(eingabe())) {
 				System.out.println("PIN korrekt");
 				while (true) {
@@ -26,12 +36,14 @@ public class Bankomat {
 						System.out.println("Bitte Karte entnehmen");
 						System.exit(0);
 					}
+					//System.out.println(konto);
 					switch (eingabe) {
 					case "E":
 						System.out.println("Wie viel möchten Sie einzahlen?");
 						if (konto.einzahlen(scanner.nextDouble())) {
 							System.out.println("Betrag wurde erfolgreich einbezahlt");
 							kontoData.updateKonto(konto);
+							System.out.println("Neuer Kontostand: " + konto.getKontostand());
 						} else {
 							System.out.println("Betrag konnte nicht einbezahlt werden");
 						}
@@ -41,6 +53,7 @@ public class Bankomat {
 						if (konto.auszahlen(scanner.nextDouble())) {
 							System.out.println("Betrag wurde erfolgreich ausbezahlt");
 							kontoData.updateKonto(konto);
+							System.out.println("Neuer Kontostand: " + konto.getKontostand());
 						} else {
 							System.out.println("Betrag konnte nicht ausbezahlt werden");
 						}
@@ -61,11 +74,9 @@ public class Bankomat {
 
 		System.out.println("Zu viele Fehlversuche - Karte ist gesperrt");
 		System.exit(0);
-
 	}
 
 	private String eingabe() {
 		return scanner.nextLine();
 	}
-
 }

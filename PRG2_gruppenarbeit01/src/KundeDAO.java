@@ -1,7 +1,12 @@
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
-
+/**
+ * Kunde Data Access Object
+ *
+ * @author Siro Müller, Marco Weber, Michel Glauser
+ * @version 1.1
+ */
 public class KundeDAO {
 	List<Kunde> all = new LinkedList<Kunde>();
 
@@ -31,10 +36,4 @@ public class KundeDAO {
 		return rc;
 	}
 
-	// schnelltest
-	// public static void main(String[] args) {
-	// KundeDAO data = new KundeDAO();
-	// System.out.println( data.getAll() );
-	// System.out.println( data.getKunde(1000002));
-	// }
 }

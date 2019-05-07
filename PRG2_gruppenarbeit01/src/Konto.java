@@ -1,4 +1,9 @@
-
+/**
+ * Kontoklasse
+ *
+ * @author Siro Müller, Marco Weber, Michel Glauser
+ * @version 1.1
+ */
 public class Konto implements Comparable<Konto> {
 
 	private int kontoNr;
@@ -16,7 +21,7 @@ public class Konto implements Comparable<Konto> {
 	}
 
 	public String toString() {
-		return kontoNr + "";
+		return "Kontonummer: " + kontoNr + ", Kontostand: " + kontoStand + " (" + kunde + ")";
 	}
 
 	public double getKontostand() {
@@ -46,15 +51,10 @@ public class Konto implements Comparable<Konto> {
 		}
 		if (betrag > 0) {
 			kontoStand -= betrag;
-			System.out.println("Betrag " + betrag + " wurde erfolgreich ausbezahlt");
+			return true;
 		} else {
-			System.out.println("Betrag muss grösser als 0 sein!");
+			return false;
 		}
-		return true;
-	}
-
-	public double getKontoStand() {
-		return kontoStand;
 	}
 
 	public void setKontoStand(double kontoStand) {

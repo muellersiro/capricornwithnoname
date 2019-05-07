@@ -2,6 +2,12 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * Konto Data Access Objekt
+ *
+ * @author Siro Müller, Marco Weber, Michel Glauser
+ * @version 1.1
+ */
 public class KontoDAO {
 	List<Konto> allKontos = new LinkedList<Konto>();
 
@@ -29,11 +35,9 @@ public class KontoDAO {
 
 	public void updateKonto(Konto konto) {
 		allKontos.set(allKontos.indexOf(konto), konto);
-		System.out.println("Konto: Kontonummer " + konto.getKontoNr() + ", updated in the database");
 	}
 
 	public void deleteKonto(Konto konto) {
 		allKontos.remove(konto.getKontoNr());
-		System.out.println("Konto: Kontonummer " + konto.getKontoNr() + ", deleted from database");
 	}
 }

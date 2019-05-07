@@ -1,3 +1,9 @@
+/**
+ * Kundenobjekt
+ *
+ * @author Siro Müller, Marco Weber, Michel Glauser
+ * @version 1.1
+ */
 public class Kunde implements Comparable<Kunde> {
 	private int kundenNr;
 	private String name;
@@ -16,7 +22,7 @@ public class Kunde implements Comparable<Kunde> {
 	}
 
 	public String toString() {
-		return name + ", " + vorname + " (" + kundenNr + ")";
+		return name + ", " + vorname + " ( Kundennummer: " + kundenNr + ")";
 	}
 
 	@Override
