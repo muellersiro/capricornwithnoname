@@ -1,24 +1,15 @@
 
 public class Konto implements Comparable<Konto> {
 
-	private Konto konto;
+	public Konto konto;
 	private int kontoNr;
 	private double kontoStand;
 	private String pin;
 	private Kunde kunde;
-
-	//Konto öffnen
-	public Konto(int kontoNr, int kundenNr) {
-		KontoDAO kontoData = new KontoDAO();
-		this.konto = kontoData.getKonto(kontoNr);
-		KundeDAO data = new KundeDAO();
-		this.kunde = data.getKunde(kundenNr);
-	}
 	
 	//Konto initalisieren
 	public Konto(int kontoNr, double kontostand, String pin, int kundenNr) {
-		KontoDAO kontoData = new KontoDAO();
-		this.konto = kontoData.getKonto(kontoNr);
+		this.kontoNr = kontoNr;
 		KundeDAO data = new KundeDAO();
 		this.kunde = data.getKunde(kundenNr);
 		this.kontoStand = kontostand;
@@ -62,6 +53,7 @@ public class Konto implements Comparable<Konto> {
 		}
 		return true;
 	}
+	
 	@Override
 	public boolean equals(Object o) {
 		if (o == this)

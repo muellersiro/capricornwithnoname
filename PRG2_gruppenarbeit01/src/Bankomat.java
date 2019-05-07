@@ -9,7 +9,10 @@ public class Bankomat {
 		System.out.println("Bankkarte wird gelesen...");
 		
 		//Konto öffnen
-		Konto konto = new Konto(333444, 4444);
+		KontoDAO kontoData = new KontoDAO();
+		System.out.println(kontoData.getAll());
+		Konto konto = kontoData.getKonto(333444);
+		//Konto konto = new Konto(333444, 4444);
 		System.out.println("Konto wird geöffnet");
 		System.out.println("PIN: ");
 

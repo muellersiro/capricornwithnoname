@@ -19,6 +19,7 @@ public class Kunde implements Comparable<Kunde> {
       return name + ", " + vorname + " (" + kundenNr + ")";
    }
    
+   @Override
    public boolean equals(Object o){
       if( o==this ) return true;
       if( o==null || o.getClass()!=getClass() ) return false;
@@ -26,10 +27,12 @@ public class Kunde implements Comparable<Kunde> {
       return kundenNr==that.kundenNr;
    }
    
+   @Override
    public int hashCode(){
       return kundenNr;
    }
    
+   @Override
    public int compareTo(Kunde o) {
       return kundenNr - o.kundenNr;
    }
