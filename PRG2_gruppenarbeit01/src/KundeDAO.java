@@ -1,16 +1,23 @@
+/**
+ * Kunde Data Access Object Klasse
+ * Gruppenarbeit 01 - PRG2
+ * Klasse 2o
+ * 
+ * @authors Glauser Michel; Müller Siro; Marco Weber
+ * @version 1.0
+ */
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
-/**
- * Kunde Data Access Object
- *
- * @author Siro Müller, Marco Weber, Michel Glauser
- * @version 1.1
- */
+
 public class KundeDAO {
 	List<Kunde> all = new LinkedList<Kunde>();
 
-	public KundeDAO() {// diese Kunden sollen existieren
+	/**
+	 * Erstellung der Kundenliste
+	 * 
+	 */
+	public KundeDAO() {
 		all.add(new Kunde(1000000, "Meier", "Gabi"));
 		all.add(new Kunde(2000000, "Maurer", "Rolf"));
 		all.add(new Kunde(1000001, "Wirth", "Nicola"));
@@ -20,14 +27,23 @@ public class KundeDAO {
 		all.add(new Kunde(1999999, "Leuthard", "Dora"));
 	}
 
-	// alle auf einmal
+	/**
+	 * Alle Kunden auf einmal zurückgeben
+	 * 
+	 * @return Kundenliste
+	 */
 	public List<Kunde> getAll() {
 		LinkedList<Kunde> rc = new LinkedList<Kunde>(all);
 		Collections.sort(rc);
 		return rc;
 	}
 
-	// ein ganz bestimmter Kunde, falls dieser existert (null, falls nicht)
+	/**
+	 * ein ganz bestimmter Kunde zurückgebens, falls dieser existert (null, falls
+	 * nicht)
+	 * 
+	 * @return Kunde
+	 */
 	public Kunde getKunde(int kundenNr) {
 		Kunde rc = null;
 		for (Kunde k : all)
