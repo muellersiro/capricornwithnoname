@@ -7,16 +7,15 @@ public class Bankomat {
 
 		System.out.println("Bitte Bankkarte einschieben");
 		System.out.println("Bankkarte wird gelesen...");
-		
-		//Konto öffnen
+
+		// Konto öffnen
 		KontoDAO kontoData = new KontoDAO();
 		System.out.println(kontoData.getAll());
 		Konto konto = kontoData.getKonto(333444);
-		//Konto konto = new Konto(333444, 4444);
+
 		System.out.println("Konto wird geöffnet");
 		System.out.println("PIN: ");
 
-		
 		for (int i = 0; i < 3; i++) {
 			if (konto.checkPin(eingabe())) {
 				System.out.println("PIN korrekt");
@@ -24,6 +23,7 @@ public class Bankomat {
 					System.out.println("Mögliche Aktionen: Einzahlung(E), Auszahlung(A), Kontoabfrage(K), Beenden(B)");
 					String eingabe = scanner.next().toUpperCase();
 					if (eingabe.equals("B")) {
+						System.out.println("Bitte Karte entnehmen");
 						System.exit(0);
 					}
 					switch (eingabe) {
@@ -31,7 +31,8 @@ public class Bankomat {
 						System.out.println("Wie viel möchten Sie einzahlen?");
 						if (konto.einzahlen(scanner.nextDouble())) {
 							System.out.println("Betrag wurde erfolgreich einbezahlt");
-						}else {
+							kontoData.updateKonto(konto);
+						} else {
 							System.out.println("Betrag konnte nicht einbezahlt werden");
 						}
 						break;
@@ -39,7 +40,8 @@ public class Bankomat {
 						System.out.println("Wie viel möchten Sie auszahlen?");
 						if (konto.auszahlen(scanner.nextDouble())) {
 							System.out.println("Betrag wurde erfolgreich ausbezahlt");
-						}else {
+							kontoData.updateKonto(konto);
+						} else {
 							System.out.println("Betrag konnte nicht ausbezahlt werden");
 						}
 						break;
