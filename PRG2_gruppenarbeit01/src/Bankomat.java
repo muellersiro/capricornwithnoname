@@ -21,7 +21,7 @@ public class Bankomat {
 		KontoDAO kontoData = new KontoDAO();
 		//Spezifisches Konto öffnen
 		System.out.println("Konto wird geöffnet");
-		Konto konto = kontoData.getKonto(333445);
+		Konto konto = kontoData.getKonto(333006);
 
 		System.out.println("PIN: ");
 
