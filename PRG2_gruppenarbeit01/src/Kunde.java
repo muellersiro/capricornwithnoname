@@ -1,7 +1,9 @@
 /**
- * Kunde Gruppenarbeit 01 - PRG2 Klasse 2o
+ * Kunde
+ * Gruppenarbeit 01 - PRG2
+ * Klasse 2o
  * 
- * @authors Glauser Michel; Müller Siro; Marco Weber
+ * @author Glauser Michel; Müller Siro; Marco Weber
  * @version 1.0
  */
 public class Kunde implements Comparable<Kunde> {

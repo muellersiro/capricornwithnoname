@@ -42,6 +42,7 @@ public class KundeDAO {
 	 * ein ganz bestimmter Kunde zurückgebens, falls dieser existert (null, falls
 	 * nicht)
 	 * 
+	 * @param kundenNr Kundennummer
 	 * @return Kunde
 	 */
 	public Kunde getKunde(int kundenNr) {

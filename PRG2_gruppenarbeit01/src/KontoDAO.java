@@ -18,14 +18,14 @@ public class KontoDAO {
 	 * 
 	 */
 	public KontoDAO() {
-		allKontos.add(new Konto(333001, 50000.0, "1234", 1000000));
-		allKontos.add(new Konto(333002, 10000.0, "9988", 2000000));
-		allKontos.add(new Konto(333003, 20000.0, "9966", 1000001));
-		allKontos.add(new Konto(333004, 70000.0, "4321", 1000002));
-		allKontos.add(new Konto(333005, 110000.0, "6666", 1000003));
-		allKontos.add(new Konto(333006, 25000.0, "7777", 4000000));
-		allKontos.add(new Konto(333007, 2500000.0, "3333", 1999999));
-		allKontos.add(new Konto(333008, 1500000.0, "2222", 4000000));
+		allKontos.add(new Konto(333001, 50000.0, "CHF", "1234", 1000000));
+		allKontos.add(new Konto(333002, 10000.0, "USD", "9988", 2000000));
+		allKontos.add(new Konto(333003, 20000.0, "EUR","9966", 1000001));
+		allKontos.add(new Konto(333004, 70000.0, "CHF","4321", 1000002));
+		allKontos.add(new Konto(333005, 110000.0,"CHF", "6666", 1000003));
+		allKontos.add(new Konto(333006, 25000.0, "CHF","7777", 4000000));
+		allKontos.add(new Konto(333007, 2500000.0,"EUR", "3333", 1999999));
+		allKontos.add(new Konto(333008, 1500000.0,"USD", "2222", 4000000));
 	}
 
 	/**
@@ -43,7 +43,8 @@ public class KontoDAO {
 	 * ein ganz bestimmtes Konto zurückgeben, falls dieses existert (null, falls
 	 * nicht)
 	 * 
-	 * @return Konto
+	 * @param kontoNr Kontonummer
+	 * @return Konto Kontoinstanz
 	 */
 	public Konto getKonto(int kontoNr) {
 		Konto rc = null;
@@ -56,7 +57,7 @@ public class KontoDAO {
 	/**
 	 * Konto aktualisieren für Kontenstandänderungen
 	 * 
-	 * @param Konto Kontoinstanz
+	 * @param konto Kontoinstanz
 	 */
 	public void updateKonto(Konto konto) {
 		allKontos.set(allKontos.indexOf(konto), konto);
@@ -65,7 +66,7 @@ public class KontoDAO {
 	/**
 	 * Konto löschen
 	 * 
-	 * @param Konto Kontoinstanz
+	 * @param konto Kontoinstanz
 	 */
 	public void deleteKonto(Konto konto) {
 		allKontos.remove(konto.getKontoNr());

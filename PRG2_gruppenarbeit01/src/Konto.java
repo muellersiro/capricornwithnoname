@@ -1,7 +1,9 @@
 /**
- * Konto Gruppenarbeit 01 - PRG2 Klasse 2o
+ * Konto 
+ * Gruppenarbeit 01 - PRG2
+ * Klasse 2o
  * 
- * @authors Glauser Michel; Müller Siro; Marco Weber
+ * @author Glauser Michel; Müller Siro; Marco Weber
  * @version 1.0
  */
 public class Konto implements Comparable<Konto> {
@@ -10,6 +12,7 @@ public class Konto implements Comparable<Konto> {
 	private double kontoStand;
 	private String pin;
 	private Kunde kunde;
+	private String waehrung;
 
 	/**
 	 * Konto initalisieren
@@ -18,8 +21,9 @@ public class Konto implements Comparable<Konto> {
 	 * @param kontostand Kontostand
 	 * @param pin        PIN
 	 * @param kundenNr   Kundennummer
+	 * @param waehrung   Währung
 	 */
-	public Konto(int kontoNr, double kontostand, String pin, int kundenNr) {
+	public Konto(int kontoNr, double kontostand, String waehrung, String pin, int kundenNr) {
 		this.kontoNr = kontoNr;
 		// Kundendaten lesen
 		KundeDAO kundendaten = new KundeDAO();
@@ -27,6 +31,7 @@ public class Konto implements Comparable<Konto> {
 		this.kunde = kundendaten.getKunde(kundenNr);
 		this.kontoStand = kontostand;
 		this.pin = pin;
+		this.waehrung = waehrung;
 	}
 
 	/**
@@ -35,7 +40,7 @@ public class Konto implements Comparable<Konto> {
 	 * @return String
 	 */
 	public String toString() {
-		return "Kontonummer: " + kontoNr + ", Kontostand: " + kontoStand + " von Kunde (" + kunde + ")";
+		return "Kontonummer: " + kontoNr + ", Kontostand: " + kontoStand +" " + waehrung +" von Kunde (" + kunde + ")";
 	}
 
 	/**
@@ -94,7 +99,7 @@ public class Konto implements Comparable<Konto> {
 	/**
 	 * Pin Setter
 	 * 
-	 * @param pin
+	 * @param pin PIN
 	 */
 	public void setPin(String pin) {
 		this.pin = pin;
@@ -110,9 +115,18 @@ public class Konto implements Comparable<Konto> {
 	}
 
 	/**
+	 * Währung Getter
+	 *
+	 * @return Kontostand
+	 */
+	public String getWaehrung() {
+		return waehrung;
+	}
+
+	/**
 	 * Pin Setter
 	 * 
-	 * @param Kontostand
+	 * @param kontoStand Kontostand
 	 */
 	public void setKontoStand(double kontoStand) {
 		this.kontoStand = kontoStand;

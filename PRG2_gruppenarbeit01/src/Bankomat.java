@@ -10,12 +10,13 @@ import java.util.Scanner;
 
 public class Bankomat {
 	Scanner scanner = new Scanner(System.in);
-
+	
 	/**
 	 * Startmethode
 	 *
+	 * @param bankKonto Bankkonto, das geöffnet werden soll
 	 */
-	public void starten() {
+	public void starten(int bankKonto) {
 		System.out.println("Bitte Bankkarte einschieben");
 		System.out.println("Bankkarte wird gelesen...");
 
@@ -23,14 +24,14 @@ public class Bankomat {
 		KontoDAO kontoData = new KontoDAO();
 		// Spezifisches Konto öffnen - Hier wird angenommen, dass die Kontonummer der
 		// eingeschobenen Bankkarte entnommen werden kann
-		Konto konto = kontoData.getKonto(333006);
+		Konto konto = kontoData.getKonto(bankKonto);
 		System.out.println("Konto wird geöffnet");
 		System.out.println("Das Konto mit " + konto + " wurde geöffnet");
 
 		// drei Versuche für die PIN Eingabe
 		System.out.println("PIN: ");
 		for (int i = 0; i < 3; i++) {
-			if (konto.checkPin(eingabe())) { // PIN Check
+			if (konto.checkPin(LineEingabe())) { // PIN Check
 				System.out.println("PIN korrekt");
 				while (true) {
 					System.out.println("Mögliche Aktionen: Einzahlung(E), Auszahlung(A), Kontoabfrage(K), Abbruch(X)");
@@ -44,31 +45,31 @@ public class Bankomat {
 
 					switch (eingabe) {
 					case "E": // Einzahlung
-						System.out.println("Wie viel möchten Sie einzahlen?");
-						if (konto.einzahlen(scanner.nextDouble())) { // Objekt aktualisieren
+						System.out.println("Welchen Betrag möchten Sie einzahlen?");
+						if (konto.einzahlen(scanner.nextDouble())) {
 							System.out.println("Betrag wurde erfolgreich einbezahlt");
 							// List aktualisieren
 							kontoData.updateKonto(konto);
-							System.out.println("Neuer Kontostand: " + konto.getKontostand());
+							System.out.println("Neuer Kontostand: " + konto.getKontostand() + konto.getWaehrung());
 						} else {
 							System.out.println("Betrag konnte nicht einbezahlt werden");
 						}
 						break;
 
 					case "A": // Auszahlung
-						System.out.println("Wie viel möchten Sie auszahlen?");
-						if (konto.auszahlen(scanner.nextDouble())) {// Objekt aktualisieren
+						System.out.println("Welchen Betrag möchten Sie auszahlen?");
+						if (konto.auszahlen(scanner.nextDouble())) {
 							System.out.println("Betrag wurde erfolgreich ausbezahlt");
 							// List aktualisieren
 							kontoData.updateKonto(konto);
-							System.out.println("Neuer Kontostand: " + konto.getKontostand());
+							System.out.println("Neuer Kontostand: " + konto.getKontostand() + konto.getWaehrung());
 						} else {
 							System.out.println("Betrag konnte nicht ausbezahlt werden");
 						}
 						break;
 
 					case "K": // Kontoabfrage
-						System.out.println(konto.getKontostand());
+						System.out.println(konto.getKontostand() + konto.getWaehrung());
 						break;
 					default:
 						System.out.println("Ungültige Eingabe");
@@ -91,7 +92,7 @@ public class Bankomat {
 	 *
 	 * @return Zeile
 	 */
-	private String eingabe() {
+	private String LineEingabe() {
 		return scanner.nextLine();
 	}
 }
