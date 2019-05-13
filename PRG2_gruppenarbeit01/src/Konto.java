@@ -55,7 +55,7 @@ public class Konto implements Comparable<Konto> {
 	/**
 	 * Betrag einzahlen Überprüfung, ob Betrag möglich ist
 	 *
-	 * @param betrag Höhe des Betrags
+	 * @param betragStr Höhe des Betrags
 	 * @return Transaktionserfolg true/false
 	 */
 	public Boolean einzahlen(String betragStr) {
@@ -78,7 +78,7 @@ public class Konto implements Comparable<Konto> {
 	 * Betrag auszahlen Überprüfung, ob Betrag möglich ist Überprüfung, ob der
 	 * gewünschte Betrag kleiner ist als der Kontostand
 	 *
-	 * @param betrag Höhe des Betrags
+	 * @param betragStr Höhe des Betrags
 	 * @return Transaktionserfolg true/false
 	 */
 	public Boolean auszahlen(String betragStr) {
