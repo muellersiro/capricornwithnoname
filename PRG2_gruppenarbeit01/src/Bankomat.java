@@ -46,7 +46,7 @@ public class Bankomat {
 					switch (eingabe) {
 					case "E": // Einzahlung
 						System.out.println("Welchen Betrag möchten Sie einzahlen?");
-						if (konto.einzahlen(scanner.nextDouble())) {
+						if (konto.einzahlen(scanner.next())) {
 							System.out.println("Betrag wurde erfolgreich einbezahlt");
 							// List aktualisieren
 							kontoData.updateKonto(konto);
@@ -58,7 +58,7 @@ public class Bankomat {
 
 					case "A": // Auszahlung
 						System.out.println("Welchen Betrag möchten Sie auszahlen?");
-						if (konto.auszahlen(scanner.nextDouble())) {
+						if (konto.auszahlen(scanner.next())) {
 							System.out.println("Betrag wurde erfolgreich ausbezahlt");
 							// List aktualisieren
 							kontoData.updateKonto(konto);

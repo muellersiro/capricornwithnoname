@@ -1,7 +1,5 @@
 /**
- * Konto 
- * Gruppenarbeit 01 - PRG2
- * Klasse 2o
+ * Konto Gruppenarbeit 01 - PRG2 Klasse 2o
  * 
  * @author Glauser Michel; Müller Siro; Marco Weber
  * @version 1.0
@@ -40,7 +38,8 @@ public class Konto implements Comparable<Konto> {
 	 * @return String
 	 */
 	public String toString() {
-		return "Kontonummer: " + kontoNr + ", Kontostand: " + kontoStand +" " + waehrung +" von Kunde (" + kunde + ")";
+		return "Kontonummer: " + kontoNr + ", Kontostand: " + kontoStand + " " + waehrung + " von Kunde (" + kunde
+				+ ")";
 	}
 
 	/**
@@ -59,7 +58,14 @@ public class Konto implements Comparable<Konto> {
 	 * @param betrag Höhe des Betrags
 	 * @return Transaktionserfolg true/false
 	 */
-	public Boolean einzahlen(double betrag) {
+	public Boolean einzahlen(String betragStr) {
+		double betrag = -1;
+		try {
+			betrag = Double.parseDouble(betragStr);
+		} catch (Exception e) {
+			return false;
+		}
+		
 		if (betrag > 0) {
 			kontoStand += betrag;
 			return true;
@@ -75,7 +81,14 @@ public class Konto implements Comparable<Konto> {
 	 * @param betrag Höhe des Betrags
 	 * @return Transaktionserfolg true/false
 	 */
-	public Boolean auszahlen(double betrag) {
+	public Boolean auszahlen(String betragStr) {
+		double betrag = -1;
+		try {
+			betrag = Double.parseDouble(betragStr);
+		} catch (Exception e) {
+			return false;
+		}
+		
 		if (kontoStand < betrag) {
 			return false;
 		}
