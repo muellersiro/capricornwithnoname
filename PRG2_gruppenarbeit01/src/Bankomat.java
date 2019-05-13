@@ -18,7 +18,7 @@ public class Bankomat {
 	 */
 	public void starten(int bankKonto) {
 		System.out.println("Bitte Bankkarte einschieben");
-		System.out.println("Bankkarte wird gelesen...");
+		System.out.println("Bankkarte mit Konto wird gelesen...");
 
 		// Alle Konten einlesen
 		KontoDAO kontoData = new KontoDAO();
